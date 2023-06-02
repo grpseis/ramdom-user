@@ -29,6 +29,7 @@ class UserLocalDataSource {
     //TODO
     // aquí se debe llamar al db.insert
     //db.insert('users', user as Map<String, Object?>);
+    print(user.toMap());
     await db.insert('users', user.toMap(),conflictAlgorithm: ConflictAlgorithm.replace,);
   }
 

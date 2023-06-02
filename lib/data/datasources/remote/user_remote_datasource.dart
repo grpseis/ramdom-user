@@ -28,10 +28,8 @@ class UserRemoteDatatasource {
       var jsonString = response.body;
 
       UserRemoteModel userRemoteModel = RandomUserJsonReponseModel.fromJson(json.decode(jsonString)).results[0];
-
-
       return RandomUser(
-          city: '', gender: 'xx', name: '', email: '', picture: '');
+          city: userRemoteModel.location.city, gender: userRemoteModel.gender, name: userRemoteModel.name.first, email: userRemoteModel.email, picture: userRemoteModel.picture.thumbnail);
     } else {
       logError("Got error code ${response.statusCode}");
     }
