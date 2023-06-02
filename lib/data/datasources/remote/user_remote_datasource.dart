@@ -16,7 +16,7 @@ class UserRemoteDatatasource {
       "results": "1",
     }));
 
-    //TODO
+     //TODO
     // Usar el request URI para hace run Get, en caso de obtener un statusCode de 200
     // hacer parsing con el método RandomUserJsonReponseModel.fromJson y devolver
     // un RandomUser usando el método  RandomUserModel.fromRemote(..),toEntity()
@@ -26,6 +26,9 @@ class UserRemoteDatatasource {
       logInfo("Got code 200");
 
       var jsonString = response.body;
+
+      UserRemoteModel userRemoteModel = RandomUserJsonReponseModel.fromJson(json.decode(jsonString)).results[0];
+
 
       return RandomUser(
           city: '', gender: 'xx', name: '', email: '', picture: '');
